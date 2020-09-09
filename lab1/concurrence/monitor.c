@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <time.h>
+#include <string.h>
+
+#define MAX 128
+
+FILE* f;
+char s[MAX];
+int ret;
+
+void generate_progress(const char* command)
+{
+	f = popen(command, "r");
+	while((ret = fread(s,1,MAX,f)) > 0)
+		fwrite(s,1,ret,stdout);
+	pclose(f);
+	exit(0);
+}
+
+int main()
+{
+	pid_t p1, p2, p3;
+
+	p1 = fork();
+	if(p1 < 0)
+	{
+		printf("创建子进程1失败！\n");
+		exit(1);
+	}
+
+	if(p1 == 0) // 子进程1
+	{
+		generate_progress("python window.py 1");
+		exit(0);
+	}
+
+	p2 = fork();
+	if(p2 < 0)
+	{
+		printf("创建子进程2失败！\n");
+		exit(1);
+	}
+
+	if(p2 == 0) // 子进程2
+	{
+		generate_progress("python window.py 2");
+		exit(0);
+	}
+
+	p3 = fork();
+	if(p3 < 0)
+	{
+		printf("创建子进程3失败！\n");
+		exit(1);
+	}
+
+	if(p3 == 0) // 子进程3
+	{
+		generate_progress("python window.py 3");
+		exit(0);
+	}
+
+	waitpid(p1, NULL, 0);
+	waitpid(p2, NULL, 0);
+	waitpid(p3, NULL, 0);
+
+	printf("Done.\n");
+
+	return 0;
+}
