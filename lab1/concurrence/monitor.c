@@ -14,9 +14,15 @@ int ret;
 void generate_progress(const char* command)
 {
 	f = popen(command, "r");
-	while((ret = fread(s,1,MAX,f)) > 0)
-		fwrite(s,1,ret,stdout);
-	pclose(f);
+	if(f != NULL)
+	{
+		while((ret = fread(s,1,MAX,f)) > 0)
+			fwrite(s,1,ret,stdout);
+		pclose(f);
+	}
+	else
+		printf("popen分配内存失败！\n");
+	
 	exit(0);
 }
 

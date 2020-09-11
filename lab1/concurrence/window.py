@@ -72,7 +72,7 @@ sleep(3)
 
 # 不同进程对应不同操作
 
-T = 10 # 周期
+T = 20 # 周期
 if w.num == 1:
 	w.progress_1(T)
 elif w.num == 2:
@@ -81,4 +81,4 @@ elif w.num == 3:
 	w.progress_3(T)
 
 w.close()
-sys.exit(app.exec_())
+sys.exit(w.close()) # 以窗口关闭为结束标志

@@ -15,7 +15,7 @@ int main(int argc, const char* argv[])
 		return -1;
 	}
 
-	int f_write = open(argv[2], O_RDWR|O_CREAT|O_TRUNC); //O_TRUNC -> 存在且可写时会清除原来信息
+	int f_write = open(argv[2], O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR); //O_TRUNC -> 存在且可写时会清除原来信息
 	if(f_write == -1)
 	{
 		printf("打开或创建%s失败！\n", argv[2]);
