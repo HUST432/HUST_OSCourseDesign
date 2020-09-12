@@ -1,0 +1,1 @@
+cmd_/home/yingjia/OSProject/lab3/mydriver.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/yingjia/OSProject/lab3/mydriver.ko /home/yingjia/OSProject/lab3/mydriver.o /home/yingjia/OSProject/lab3/mydriver.mod.o ;  true

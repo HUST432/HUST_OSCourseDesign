@@ -1,0 +1,1 @@
+cmd_/home/yingjia/OSProject/lab3/dev.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/yingjia/OSProject/lab3/dev.ko /home/yingjia/OSProject/lab3/dev.o /home/yingjia/OSProject/lab3/dev.mod.o ;  true
