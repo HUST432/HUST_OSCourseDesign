@@ -830,7 +830,7 @@ if __name__ == '__main__':
 
 	buf_process = {}
 
-	# 创建锁
+	# 创建信号灯
 	lock_time_empty = threading.Semaphore(1)
 	lock_time_full = threading.Semaphore(0)
 
