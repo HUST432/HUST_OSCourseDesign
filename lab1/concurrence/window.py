@@ -68,7 +68,7 @@ num = sys.argv[1]
 
 w = window(num)
 w.show()
-sleep(3)
+#sleep(3)
 
 # 不同进程对应不同操作
 

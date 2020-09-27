@@ -4,7 +4,7 @@ class config():
 	'''
 	def __init__(self):
 		self.MEMORY_MAX = 512 # 每一个磁盘块的最大容量
-		self.BLOCKS_MAX = 20 # 磁盘块的最大个数
+		self.BLOCKS_MAX = 200000 # 磁盘块的最大个数
 
 class block():
 	'''

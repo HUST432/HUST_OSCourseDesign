@@ -671,7 +671,7 @@ def read():
 			ok = True
 		elif current_userid == file_node.create_userid and access_list[0] != '_': # 为创建者
 			ok = True
-		elif current_userid != file_node.create_userid and access_list[1] == '_': # 为其他用户
+		elif current_userid != file_node.create_userid and access_list[1] != '_': # 为其他用户
 			ok = True
 
 		if not ok:
