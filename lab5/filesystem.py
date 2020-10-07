@@ -210,7 +210,7 @@ def init_disks():
 
 	# 初始化磁盘块索引
 	global block_indexes
-	block_indexes = dict(zip([(i+1) for i in range(BLOCKS_MAX)], blocks)) # 从1开始
+	block_indexes = dict(zip([i for i in range(1, BLOCKS_MAX+1)], blocks)) # 从1开始
 
 	# 初始化磁盘块空闲队列
 	global free_blocks
